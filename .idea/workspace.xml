@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dff5396-bd9a-4de2-87cb-e69a62b91860" name="Changes" comment="" />
+    <list default="true" id="5dff5396-bd9a-4de2-87cb-e69a62b91860" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/2881f8e7f493416797bdf501c4957196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/7f34cff7d7fd4269bc6bac07ca6bf152.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/848c521115ed4b30bbe45155336aee14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/af1f248c9ea248ac8c8b0035e93899d6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/d226c42aa86443b381d26f3af4d6dd48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/001d275b20ca4a75807826e83012939b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/89f4ae24f5514e468826a40dc89d100e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/9e60678dfa7848acbffde12bacd8edb6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/b4addcfeb00b4190aca3f61d0bd98d1f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/d087408af13f40b286aad9eb28a1d34a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/2a9e90a10d31443bb4f7927aeed15281.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/2c3bd4f1f61341e1a09205abb6d34952.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/44eb1b07a81848ff86137912058ff1a7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/67ade2e6c0fe4be788d8856ded39d1fd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/8c9a891ec0d94960bce290639485d14c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/956d787ca9624c2f97279b1e63d409b5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/18adfef658ce471b822b0bfc4ba9437e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/285cbc047f2c417e8e0ea9b56d7d7a87.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/668a1bebac2849c2ac2554efcddcaf08.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/8685c287e9a1441183b814fe64087602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/a69cfe5e730949d1ad80dfdf66aa3179.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/b821c06bd0f447a0b83e14375473320c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/gallery/edit_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gallery/edit_comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/bg_app.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/bg_app.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +146,7 @@
       <workItem from="1763991922786" duration="2561000" />
       <workItem from="1764244221185" duration="127000" />
       <workItem from="1764532640945" duration="7037000" />
-      <workItem from="1764599031581" duration="7146000" />
+      <workItem from="1764599031581" duration="9372000" />
     </task>
     <servers />
   </component>
@@ -128,6 +155,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BGRemover$BGRemover.coverage" NAME="BGRemover Coverage Results" MODIFIED="1763580662466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/BGRemover$Flask__run_py_.coverage" NAME="Flask (run.py) Coverage Results" MODIFIED="1764611197388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BGRemover$Flask__run_py_.coverage" NAME="Flask (run.py) Coverage Results" MODIFIED="1764616697373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

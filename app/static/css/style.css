@@ -702,3 +702,24 @@ h2 {
   max-width: 100%;
 }
 
+
+.edit-comment-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.edit-comment-cancel {
+  color: var(--col-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.edit-comment-cancel:hover,
+.edit-comment-cancel:focus {
+  color: var(--col-muted);
+  text-decoration: none;
+}
+

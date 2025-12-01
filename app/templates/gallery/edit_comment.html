@@ -1,12 +1,34 @@
 {% extends "base.html" %}
 {% block title %}Edit comment{% endblock %}
 {% block content %}
-<h2>Edit comment</h2>
-<form method="post">
-  <div class="mb-3">
-    <textarea class="form-control" name="text" rows="4" required>{{ comment.text }}</textarea>
+
+<div class="composition-page">
+  <div class="comments-section">
+    <h2 class="comments-title">Edit comment</h2>
+
+    <form method="post" class="comment-form">
+      <textarea
+        name="text"
+        class="comment-input"
+        rows="4"
+        required
+      >{{ comment.text }}</textarea>
+
+      <div class="edit-comment-actions">
+        <button type="submit" class="btn comment-submit">
+          Save
+        </button>
+
+        <a
+          href="{{ url_for('gallery.composition_detail',
+                           comp_id=comment.composition_id) }}"
+          class="edit-comment-cancel"
+        >
+          Cancel
+        </a>
+      </div>
+    </form>
   </div>
-  <button class="btn btn-primary">Save</button>
-  <a href="{{ url_for('gallery.composition_detail', comp_id=comment.composition_id) }}" class="btn btn-secondary">Cancel</a>
-</form>
+</div>
+
 {% endblock %}
