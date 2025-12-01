@@ -6,7 +6,6 @@
   <div class="auth-card">
     <h2 class="auth-title">Login</h2>
 
-    {# flash üzenetek, ha vannak #}
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul class="auth-flashes">
@@ -40,13 +39,13 @@
       </div>
 
       <button class="btn auth-btn w-100" type="submit">
-        Log in
+         Log in
       </button>
     </form>
 
     <p class="auth-footer-text mt-3 mb-0">
-      Don’t have an account yet?
-      <a href="{{ url_for('auth.register') }}">Register</a>
+         Don’t have an account yet?
+        <a href="{{ url_for('auth.register') }}">Register</a>
     </p>
   </div>
 </div>

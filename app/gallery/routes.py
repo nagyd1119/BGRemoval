@@ -47,13 +47,10 @@ def gallery():
     query = Composition.query
 
     if g.user is None:
-        # vendég: csak publikus
         query = query.filter(Composition.is_public.is_(True))
     elif g.user.is_admin:
-        # admin: mindent lát
         pass
     else:
-        # sima user: publikus + saját privát
         query = (
             query.outerjoin(Image)
             .filter(
@@ -79,7 +76,6 @@ def composition_detail(comp_id):
             return redirect(url_for("gallery.gallery"))
 
     if request.method == "POST":
-        # új komment
         if g.user is None:
             flash("You need to be logged in to post comments.")
             return redirect(url_for("auth.login"))
@@ -150,12 +146,10 @@ def set_profile_image(comp_id):
     owner_id = comp.image.user_id if comp.image else None
 
     if not comp.is_public:
-        # privát kép → csak tulaj vagy admin
         if not g.user.is_admin and g.user.id != owner_id:
             flash("This image is private, you may not set it as profile picture")
             return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
 
-    # ha publikus → bármelyik user beállíthatja magának
     g.user.profile_image_id = comp.id
     db.session.commit()
     flash("Profile picture successfully updated.")

@@ -2,7 +2,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 
-# 1) Itt hozzuk létre a db-t, még függvényen kívül
 db = SQLAlchemy()
 
 
@@ -11,15 +10,12 @@ def create_app():
     app.config.from_object(Config)
     Config.ensure_dirs()
 
-    # 2) db inicializálása
     db.init_app(app)
 
-    # 3) modellek importja, amikor már van app + db
     with app.app_context():
-        from . import models  # <- CSAK ITT legyen ilyen import
+        from . import models
         db.create_all()
 
-    # 4) blueprint-ek
     from .auth.routes import auth_bp
     from .gallery.routes import gallery_bp
 

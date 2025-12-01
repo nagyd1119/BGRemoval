@@ -13,7 +13,6 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # ÚJ: profilkép (Composition-hez kötve)
     profile_image_id = db.Column(db.Integer, db.ForeignKey("compositions.id"))
     profile_image = db.relationship(
         "Composition",

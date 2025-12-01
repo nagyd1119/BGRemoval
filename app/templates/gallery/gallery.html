@@ -5,7 +5,6 @@
 <h2 class="mb-4">Gallery</h2>
 
 <div class="gallery-layout">
-  {# ----- LEFT: SIDEBAR / UPLOAD FORM ----- #}
   <div class="gallery-sidebar">
     {% if g.user %}
     <div class="card mb-4">
@@ -45,7 +44,6 @@
     {% endif %}
   </div>
 
-  {# ----- RIGHT: FEED / GALLERY ----- #}
   <div class="gallery-main">
     <div class="gallery-grid">
       {% for comp in compositions %}

@@ -11,7 +11,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(INSTANCE_DIR, DB_NAME).replace("\\", "/")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # Upload pathok
     UPLOAD_FOLDER = os.path.join(BASE_DIR, "app", "static", "uploads")
     ORIGINAL_FOLDER = os.path.join(UPLOAD_FOLDER, "original")
     CUTOUT_FOLDER = os.path.join(UPLOAD_FOLDER, "cutout")
