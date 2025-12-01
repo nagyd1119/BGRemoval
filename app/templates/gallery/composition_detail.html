@@ -34,6 +34,32 @@
             Set as profile picture
           </button>
         </form>
+
+        <form
+          method="post"
+          action="{% if g.user in composition.likers %}
+                     {{ url_for('gallery.unlike_composition', comp_id=composition.id) }}
+                   {% else %}
+                     {{ url_for('gallery.like_composition', comp_id=composition.id) }}
+                   {% endif %}"
+          class="inline-form"
+        >
+          <button type="submit" class="pill-btn secondary-pill">
+            {% if g.user in composition.likers %}
+              Unlike
+            {% else %}
+              Like
+            {% endif %}
+            ({{ composition.likers|length }})
+          </button>
+        </form>
+
+      {% else %}
+        <p class="composition-uploaded">
+          Likes: {{ composition.likers|length }}
+          &nbsp;–&nbsp;
+          <a href="{{ url_for('auth.login') }}">Log in</a> to like
+        </p>
       {% endif %}
     </div>
 

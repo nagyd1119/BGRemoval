@@ -155,3 +155,27 @@ def set_profile_image(comp_id):
     flash("Profile picture successfully updated.")
     return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
 
+@gallery_bp.post("/composition/<int:comp_id>/like")
+@login_required
+def like_composition(comp_id):
+    comp = Composition.query.get_or_404(comp_id)
+
+    # ha még nem like-olta, hozzáadjuk
+    if g.user not in comp.likers:
+        comp.likers.append(g.user)
+        db.session.commit()
+
+    return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+
+@gallery_bp.post("/composition/<int:comp_id>/unlike")
+@login_required
+def unlike_composition(comp_id):
+    comp = Composition.query.get_or_404(comp_id)
+
+    # ha már like-olta, levesszük
+    if g.user in comp.likers:
+        comp.likers.remove(g.user)
+        db.session.commit()
+
+    return redirect(url_for("gallery.composition_detail", comp_id=comp.id))

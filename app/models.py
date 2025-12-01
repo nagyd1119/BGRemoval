@@ -2,6 +2,14 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 
+# ---------- N:M kapcsolótábla: users <-> compositions (likes) ----------
+
+user_likes = db.Table(
+    "user_likes",
+    db.Column("user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("composition_id", db.Integer, db.ForeignKey("compositions.id"), primary_key=True),
+)
+
 
 class User(db.Model):
     __tablename__ = "users"
@@ -13,6 +21,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+    # profilkép (1:1 egy Compositionnel)
     profile_image_id = db.Column(db.Integer, db.ForeignKey("compositions.id"))
     profile_image = db.relationship(
         "Composition",
@@ -20,8 +29,16 @@ class User(db.Model):
         uselist=False,
     )
 
+    # 1:N relációk
     images = db.relationship("Image", backref="user", lazy=True)
     comments = db.relationship("Comment", backref="user", lazy=True)
+
+    # N:M – user által kedvelt kompozíciók
+    liked_compositions = db.relationship(
+        "Composition",
+        secondary=user_likes,
+        back_populates="likers",
+    )
 
     def set_password(self, pw: str):
         self.password_hash = generate_password_hash(pw)
@@ -64,6 +81,13 @@ class Composition(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     comments = db.relationship("Comment", backref="composition", lazy=True)
+
+    # N:M – kik kedvelték ezt a kompozíciót
+    likers = db.relationship(
+        "User",
+        secondary=user_likes,
+        back_populates="liked_compositions",
+    )
 
 
 class Comment(db.Model):

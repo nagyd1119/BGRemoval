@@ -6,31 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="5dff5396-bd9a-4de2-87cb-e69a62b91860" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/2881f8e7f493416797bdf501c4957196.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/7f34cff7d7fd4269bc6bac07ca6bf152.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/848c521115ed4b30bbe45155336aee14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/af1f248c9ea248ac8c8b0035e93899d6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/d226c42aa86443b381d26f3af4d6dd48.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/001d275b20ca4a75807826e83012939b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/89f4ae24f5514e468826a40dc89d100e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/9e60678dfa7848acbffde12bacd8edb6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/b4addcfeb00b4190aca3f61d0bd98d1f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/d087408af13f40b286aad9eb28a1d34a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/2a9e90a10d31443bb4f7927aeed15281.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/2c3bd4f1f61341e1a09205abb6d34952.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/44eb1b07a81848ff86137912058ff1a7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/67ade2e6c0fe4be788d8856ded39d1fd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/8c9a891ec0d94960bce290639485d14c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/956d787ca9624c2f97279b1e63d409b5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/18adfef658ce471b822b0bfc4ba9437e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/285cbc047f2c417e8e0ea9b56d7d7a87.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/668a1bebac2849c2ac2554efcddcaf08.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/8685c287e9a1441183b814fe64087602.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/a69cfe5e730949d1ad80dfdf66aa3179.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/b821c06bd0f447a0b83e14375473320c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/gallery/edit_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gallery/edit_comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/bg_app.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/bg_app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gallery/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gallery/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/2b1aa270fa894f768c32cb42ab91864c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/37321a9c8dc3458899291bf511faf978.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/5b81733593bd4c118515b64d74771a82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/96234b6aa82c41f1aa3fc2baaa43c7cb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/backgrounds/f41128624f704e00a2f25773341bd55c.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/045da46c82a649569cdc6900fe5b3129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/a2ec31ec40ec414690ab4a8e223bb00a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/b449cbab0d1544a6ab37ccc1bd5c67a7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/d2a7aad62dbb49f09fdb21f6cedf8915.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/e646c1d679c94948989ca241f074d247.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/479872d2567743e89586f45d2d47b1f5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/75ac39553c5c4b32bf4794d33835dd0d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/88a54808bfd94fa59798964d5d7b1c4a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/8ec2d949a4f246aba19fb08a77395b21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/aa5cebbf168240668d4b52cd2afa5d9c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/cutout/f22ce3aa6d3e4e51b24ae3974c887f4f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/0e38ff51659945d2858c1714446c71aa.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/35eee3cfae60498498f00daad07782e9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/81190deee9b24d338f8039b5f6b99276.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/cd0c137113f14de584715b2bf7d5ffb9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/d6a8066bbf344ef1afa3dad6f015ebba.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/original/ee3255a0d15c40ddaa9375919c4cc859.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/bg_app.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,31 +61,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Flask server.BGRemover.executor&quot;: &quot;Run&quot;,
-    &quot;Flask server.Flask (run.py).executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Flask server.BGRemover.executor": "Run",
+    "Flask server.Flask (admin.py).executor": "Run",
+    "Flask server.Flask (run.py).executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\BGRemover\app\static\css" />
       <recent name="C:\Projects\BGRemover\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Flask server.Flask (run.py)">
+  <component name="RunManager">
     <configuration name="BGRemover" type="Python.FlaskServer">
       <module name="BGRemover" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
@@ -146,15 +148,26 @@
       <workItem from="1763991922786" duration="2561000" />
       <workItem from="1764244221185" duration="127000" />
       <workItem from="1764532640945" duration="7037000" />
-      <workItem from="1764599031581" duration="9372000" />
+      <workItem from="1764599031581" duration="14957000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/gallery/utils.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BGRemover$BGRemover.coverage" NAME="BGRemover Coverage Results" MODIFIED="1763580662466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/BGRemover$Flask__run_py_.coverage" NAME="Flask (run.py) Coverage Results" MODIFIED="1764616697373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BGRemover$Flask__admin_py_.coverage" NAME="Flask (admin.py) Coverage Results" MODIFIED="1764624321958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BGRemover$Flask__run_py_.coverage" NAME="Flask (run.py) Coverage Results" MODIFIED="1764624284628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
