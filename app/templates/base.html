@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}BG Removal App{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  {# ---------- NAVBAR ---------- #}
+  <nav class="navbar">
+  <div class="navbar-grid">
+
+    <!-- LEFT section (üres vagy ikon ide jöhetne) -->
+    <div class="nav-left"></div>
+
+    <!-- CENTER section (cím balra igazítva, de középső harmadban) -->
+    <div class="nav-center">
+      <a class="navbar-brand" href="{{ url_for('gallery.gallery') }}">
+        Background Removal
+      </a>
+    </div>
+
+    <!-- RIGHT section (user vagy login/register) -->
+    <div class="nav-right">
+      <ul class="auth-nav">
+        {% if g.user %}
+          <li class="nav-item d-flex align-items-center">
+            {% if g.user.profile_image %}
+              <img
+                src="{{ url_for('static', filename=g.user.profile_image.output_path) }}"
+                class="nav-avatar"
+                alt="avatar">
+            {% endif %}
+            <span class="navbar-text">
+              {{ g.user.username }}{% if g.user.is_admin %} (admin){% endif %}
+            </span>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('auth.logout') }}">Log out</a>
+          </li>
+
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('auth.login') }}">Log in</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+  {# ---------- PAGE CONTENT ---------- #}
+<div class="page-wrapper">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="mt-2">
+          {% for m in messages %}
+            <div class="alert alert-info">{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Composition{% endblock %}
+{% block content %}
+
+<div class="composition-page">
+
+  <h2 class="mb-4">Finished picture</h2>
+
+  <div class="composition-top">
+    <div class="composition-wrapper">
+      <img
+        src="{{ url_for('static', filename=composition.output_path) }}"
+        class="full-image"
+        alt="composition"
+      >
+    </div>
+
+    <div class="composition-actions">
+      <a
+        class="pill-btn primary-pill"
+        href="{{ url_for('static', filename=composition.output_path) }}"
+        download
+      >
+        Download as PNG
+      </a>
+
+      {% if g.user %}
+        <form
+          method="post"
+          action="{{ url_for('gallery.set_profile_image', comp_id=composition.id) }}"
+          class="inline-form"
+        >
+          <button type="submit" class="pill-btn secondary-pill">
+            Set as profile picture
+          </button>
+        </form>
+      {% endif %}
+    </div>
+
+    <p class="composition-uploaded">
+      Uploaded at:
+      {{ composition.created_at.strftime("%Y-%m-%d %H:%M") if composition.created_at else "" }}
+    </p>
+  </div>
+
+  {# ---------- COMMENTS ---------- #}
+  <section class="comments-section mt-4">
+
+    <h3 class="comments-title">Comments</h3>
+
+    {% if g.user %}
+      <form method="post" class="comment-form">
+        <textarea
+          class="comment-input"
+          name="text"
+          rows="3"
+          placeholder="Write a comment..."
+          required
+        ></textarea>
+
+        <button class="btn btn-primary comment-submit" type="submit">
+          Send
+        </button>
+      </form>
+    {% else %}
+      <p>To comment please <a href="{{ url_for('auth.login') }}">log in</a>.</p>
+    {% endif %}
+
+    <ul class="comment-list">
+      {% for c in composition.comments %}
+        <li class="comment-item">
+          <div class="comment-avatar">
+            {% if c.user.profile_image %}
+              <img
+                src="{{ url_for('static', filename=c.user.profile_image.output_path) }}"
+                alt="profilkép"
+              >
+            {% else %}
+              <div class="comment-avatar-placeholder"></div>
+            {% endif %}
+          </div>
+
+          <div class="comment-body">
+            <div class="comment-meta">
+              <span class="comment-author">
+                {{ c.user.username }}
+              </span>
+              <span class="comment-time">
+                {{ c.created_at.strftime("%Y-%m-%d %H:%M") if c.created_at else "" }}
+                {% if c.is_edited %}(edited){% endif %}
+              </span>
+            </div>
+
+            <p class="comment-text">{{ c.text }}</p>
+
+            {% if g.user and (g.user.is_admin or g.user.id == c.user_id) %}
+              <div class="comment-actions">
+                <a
+                  href="{{ url_for('gallery.edit_comment', comment_id=c.id) }}"
+                  class="comment-action-link"
+                >
+                  Edit
+                </a>
+
+                <form
+                  method="post"
+                  action="{{ url_for('gallery.delete_comment', comment_id=c.id) }}"
+                  class="d-inline"
+                >
+                  <button
+                    type="submit"
+                    class="comment-action-link comment-delete"
+                  >
+                    Delete
+                  </button>
+                </form>
+              </div>
+            {% endif %}
+          </div>
+        </li>
+      {% else %}
+        <li class="comment-empty">No comments available yet.</li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+{% endblock %}

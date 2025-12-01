@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card">
+    <h2 class="auth-title">Login</h2>
+
+    {# flash üzenetek, ha vannak #}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="auth-flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label auth-label">Username</label>
+        <input
+          class="form-control auth-input"
+          type="text"
+          name="username"
+          required
+          autofocus
+        >
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label auth-label">Password</label>
+        <input
+          class="form-control auth-input"
+          type="password"
+          name="password"
+          required
+        >
+      </div>
+
+      <button class="btn auth-btn w-100" type="submit">
+        Log in
+      </button>
+    </form>
+
+    <p class="auth-footer-text mt-3 mb-0">
+      Don’t have an account yet?
+      <a href="{{ url_for('auth.register') }}">Register</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
