@@ -1,11 +1,13 @@
 import os
 from uuid import uuid4
-from PIL import Image
+import uuid
+from PIL import Image as PILImage
 from rembg import remove
 from werkzeug.utils import secure_filename
 from flask import current_app
 from ..models import Image as ImageModel, Background, Composition
 from .. import db
+
 
 
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
@@ -44,7 +46,7 @@ def process_subject_and_background(subject_file, background_file, user_id: int, 
     else:
         background_abs = None
 
-    subject_img = Image.open(original_abs).convert("RGBA")
+    subject_img = PILImage.open(original_abs).convert("RGBA")
     cutout_img = remove(subject_img)
 
     cutout_name = f"{uuid4().hex}.png"
@@ -53,9 +55,9 @@ def process_subject_and_background(subject_file, background_file, user_id: int, 
     cutout_img.save(cutout_abs)
 
     if background_abs:
-        bg_img = Image.open(background_abs).convert("RGBA")
-        bg_img = bg_img.resize(cutout_img.size, Image.LANCZOS)
-        composed_img = Image.alpha_composite(bg_img, cutout_img)
+        bg_img = PILImage.open(background_abs).convert("RGBA")
+        bg_img = bg_img.resize(cutout_img.size, PILImage.LANCZOS)
+        composed_img = PILImage.alpha_composite(bg_img, cutout_img)
 
         composed_name = f"{uuid4().hex}.png"
         composed_abs = os.path.join(cfg["COMPOSED_FOLDER"], composed_name)
@@ -82,3 +84,50 @@ def process_subject_and_background(subject_file, background_file, user_id: int, 
     db.session.commit()
 
     return comp_obj
+
+def recompose_with_new_background(composition: Composition, background_file):
+    cfg = current_app.config
+    base_static = os.path.join(current_app.root_path, "static")
+
+    bg_rel_path = save_image_file(background_file, cfg["BACKGROUND_FOLDER"])
+    bg_abs = os.path.join(base_static, bg_rel_path)
+
+    bg = Background(
+        user_id=composition.image.user_id if composition.image else None,
+        bg_path=bg_rel_path,
+    )
+    db.session.add(bg)
+    db.session.flush()
+
+    static_root = current_app.static_folder
+    cutout_abs = os.path.join(static_root, composition.image.cutout_path)
+    bg_abs = os.path.join(static_root, bg_rel_path)
+
+    fg = PILImage.open(cutout_abs).convert("RGBA")
+    bg_img = PILImage.open(bg_abs).convert("RGBA")
+
+    bg_img = bg_img.resize(fg.size, PILImage.LANCZOS)
+
+    merged = PILImage.new("RGBA", fg.size)
+    merged.paste(bg_img, (0, 0))
+    merged.alpha_composite(fg)
+
+    file_name = f"{uuid.uuid4().hex}.png"
+    out_rel = os.path.join("compositions", file_name).replace("\\", "/")
+    out_abs = os.path.join(static_root, out_rel)
+    os.makedirs(os.path.dirname(out_abs), exist_ok=True)
+    merged.save(out_abs, "PNG")
+
+    old_out_rel = composition.output_path
+    if old_out_rel:
+        old_out_abs = os.path.join(static_root, old_out_rel)
+        try:
+            os.remove(old_out_abs)
+        except OSError:
+            pass
+
+    composition.background_id = bg.id
+    composition.output_path = out_rel
+
+    db.session.commit()
+    return composition

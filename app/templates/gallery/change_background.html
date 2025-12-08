@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Change background{% endblock %}
+{% block content %}
+
+<div class="composition-page">
+  <h2 class="mb-4">Change background</h2>
+
+  <div class="composition-top">
+    <div class="composition-wrapper">
+      <img
+        src="{{ url_for('static', filename=composition.output_path) }}"
+        class="full-image"
+        alt="composition"
+      >
+    </div>
+  </div>
+
+  <form method="post" enctype="multipart/form-data" class="comment-form" style="margin-top: 1.5rem;">
+    <label class="auth-label">New background image</label>
+    <input
+      type="file"
+      name="background"
+      accept="image/*"
+      class="comment-input"
+      required
+    >
+
+    <button type="submit" class="pill-btn primary-pill" style="margin-top: 0.8rem;">
+      Apply new background
+    </button>
+  </form>
+
+</div>
+
+{% endblock %}

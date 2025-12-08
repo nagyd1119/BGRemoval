@@ -4,10 +4,10 @@ from flask import (
     flash, g
 )
 from . import gallery_bp
-from .utils import allowed_file, process_subject_and_background
 from ..models import Composition, Comment, Image
 from .. import db
 from ..auth.routes import login_required, can_edit_resource
+from .utils import allowed_file, process_subject_and_background, recompose_with_new_background
 
 
 @gallery_bp.route("/", methods=["GET", "POST"])
@@ -137,6 +137,21 @@ def delete_comment(comment_id):
     flash("Comment successfully deleted.")
     return redirect(url_for("gallery.composition_detail", comp_id=comp_id))
 
+@gallery_bp.route("/comment/<int:comment_id>/delete", methods=["GET"])
+@login_required
+def delete_comment_get(comment_id):
+    comment = Comment.query.get_or_404(comment_id)
+
+    if not can_edit_resource(comment.user_id, g.user) or g.user is None:
+        flash("You are not allowed to delete this comment.")
+    else:
+        flash("Deleting comments is only allowed via the Delete button.")
+
+    return redirect(url_for(
+        "gallery.composition_detail",
+        comp_id=comment.composition_id
+    ))
+
 
 @gallery_bp.route("/composition/<int:comp_id>/set_profile", methods=["POST"])
 @login_required
@@ -160,7 +175,6 @@ def set_profile_image(comp_id):
 def like_composition(comp_id):
     comp = Composition.query.get_or_404(comp_id)
 
-    # ha még nem like-olta, hozzáadjuk
     if g.user not in comp.likers:
         comp.likers.append(g.user)
         db.session.commit()
@@ -173,9 +187,75 @@ def like_composition(comp_id):
 def unlike_composition(comp_id):
     comp = Composition.query.get_or_404(comp_id)
 
-    # ha már like-olta, levesszük
     if g.user in comp.likers:
         comp.likers.remove(g.user)
         db.session.commit()
 
     return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+@gallery_bp.route("/composition/<int:comp_id>/change_background", methods=["GET", "POST"])
+@login_required
+def change_background(comp_id):
+    comp = Composition.query.get_or_404(comp_id)
+
+    owner_id = comp.image.user_id if comp.image else None
+
+    if not (g.user.is_admin or g.user.id == owner_id):
+        flash("You cannot change the background of this composition.")
+        return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+    if request.method == "POST":
+        bg_file = request.files.get("background")
+
+        if not bg_file or bg_file.filename == "":
+            flash("No background selected.")
+            return redirect(url_for("gallery.change_background", comp_id=comp.id))
+
+        if not allowed_file(bg_file.filename):
+            flash("Background image type not supported.")
+            return redirect(url_for("gallery.change_background", comp_id=comp.id))
+
+        recompose_with_new_background(comp, bg_file)
+        flash("Background updated successfully.")
+        return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+    return render_template("gallery/change_background.html", composition=comp)
+
+
+@gallery_bp.route("/composition/<int:comp_id>/delete", methods=["POST"])
+@login_required
+def delete_composition(comp_id):
+    comp = Composition.query.get_or_404(comp_id)
+
+    owner_id = comp.image.user_id if comp.image else None
+
+    if not can_edit_resource(owner_id, g.user):
+        flash("You have no permission to delete this composition.")
+        return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+    if hasattr(comp, "likers"):
+        comp.likers.clear()
+
+    for c in list(comp.comments):
+        db.session.delete(c)
+
+    db.session.delete(comp)
+
+    db.session.commit()
+    flash("Composition successfully deleted.")
+    return redirect(url_for("gallery.gallery"))
+
+@gallery_bp.route("/composition/<int:comp_id>/delete", methods=["GET"])
+@login_required
+def delete_composition_get(comp_id):
+    comp = Composition.query.get_or_404(comp_id)
+    owner_id = comp.image.user_id if comp.image else None
+
+    if not can_edit_resource(owner_id, g.user):
+        flash("You are not allowed to delete this composition.")
+    else:
+        flash("Deleting a composition is only allowed via the Delete button.")
+
+    return redirect(url_for("gallery.composition_detail", comp_id=comp.id))
+
+
