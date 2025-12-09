@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dff5396-bd9a-4de2-87cb-e69a62b91860" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/templates/gallery/change_background.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gallery/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/gallery/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gallery/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/40eacbc43c3a46dfb7f661270d1a6c98.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/679d106b1c1b4dc9963d9bc7aa77103b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/d8a57deba0d74d44b35423abfd344050.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instance/bg_app.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/bg_app.db" afterDir="false" />
     </list>
@@ -133,6 +128,8 @@
       <workItem from="1764532640945" duration="7037000" />
       <workItem from="1764599031581" duration="24158000" />
       <workItem from="1765029142714" duration="7278000" />
+      <workItem from="1765214573681" duration="911000" />
+      <workItem from="1765265799735" duration="1158000" />
     </task>
     <servers />
   </component>

@@ -119,7 +119,8 @@ def recompose_with_new_background(composition: Composition, background_file):
     merged.save(out_abs, "PNG")
 
     old_out_rel = composition.output_path
-    if old_out_rel:
+
+    if old_out_rel and old_out_rel != composition.image.cutout_path:
         old_out_abs = os.path.join(static_root, old_out_rel)
         try:
             os.remove(old_out_abs)

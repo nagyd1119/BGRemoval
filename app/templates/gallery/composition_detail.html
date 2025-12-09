@@ -35,7 +35,6 @@
       </button>
     </form>
 
-    {# ---- csak tulaj / adminnak: háttér csere + törlés ---- #}
     {% if composition.image and (g.user.is_admin or g.user.id == composition.image.user_id) %}
       <div class="composition-owner-actions">
         <a
