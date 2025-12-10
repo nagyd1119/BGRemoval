@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5dff5396-bd9a-4de2-87cb-e69a62b91860" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/gallery/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gallery/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/uploads/composed/d8a57deba0d74d44b35423abfd344050.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/gallery/composition_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/bg_app.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/bg_app.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +125,7 @@
       <workItem from="1764599031581" duration="24158000" />
       <workItem from="1765029142714" duration="7278000" />
       <workItem from="1765214573681" duration="911000" />
-      <workItem from="1765265799735" duration="1158000" />
+      <workItem from="1765265799735" duration="5817000" />
     </task>
     <servers />
   </component>
